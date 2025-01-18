@@ -81,7 +81,7 @@ public class JournalEntry {
         List<Journal> Journals = new ArrayList<>();
 
         for (int i=1; i<=5; i++) {
-            System.out.println("Enter details for Journal " + (i + 1) + ":");
+            System.out.println("Enter details for Journal " +i+ ":");
 
             System.out.print("Name: ");
             String name = rd.nextLine();
