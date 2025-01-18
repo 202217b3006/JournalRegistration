@@ -58,22 +58,19 @@ class Journal {
 public class JournalEntry {
 
     public static void validate(Journal entry) throws CHECK_NAME, CHECK_JOURNAL_ID, ISSUE_NUMBER, CHECK_ISSN {
-        // Validate name
+        
         if (entry.getName().length() > 30 || !entry.getName().chars().allMatch(Character::isLetter)) {
             throw new CHECK_NAME("Journal name should not exceed 30 characters and must contain only alphabets.");
         }
 
-        // Validate journal ID
         if (!entry.getJournalId().chars().allMatch(Character::isLetterOrDigit)) {
             throw new CHECK_JOURNAL_ID("Journal ID must contain only alphanumeric characters.");
         }
 
-        // Validate issue number
         if (entry.getIssueNumber().length() > 20) {
             throw new ISSUE_NUMBER("Issue number should not exceed 20 characters.");
         }
 
-        // Validate ISSN
         if (entry.getIssn().length() != 9 || entry.getIssn().chars().filter(ch -> ch == '-').count() != 1) {
             throw new CHECK_ISSN("ISSN must contain exactly 9 characters, including one hyphen.");
         }
@@ -83,7 +80,7 @@ public class JournalEntry {
         Scanner rd = new Scanner(System.in);
         List<Journal> Journals = new ArrayList<>();
 
-        for (int i = 0; i < 5; i++) {
+        for (int i=1; i<=5; i++) {
             System.out.println("Enter details for Journal " + (i + 1) + ":");
 
             System.out.print("Name: ");
